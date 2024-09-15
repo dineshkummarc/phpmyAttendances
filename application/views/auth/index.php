@@ -18,7 +18,7 @@
                 <?= $this->session->flashdata('message'); ?>
                 <form class="user" method="post" action="<?= base_url(); ?>">
                   <div class="form-group mt-4">
-                    <input type="text" class="form-control form-control-user" name="username" placeholder="Username">
+                    <input type="text" class="form-control form-control-user" name="username" placeholder="Username (example: STD026)">
                     <?= form_error('username', '<small class="text-danger pl-3">', '</small>') ?>
                   </div>
                   <div class="form-group mt-4 mb-4">

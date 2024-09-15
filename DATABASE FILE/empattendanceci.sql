@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Waktu pembuatan: 25 Jun 2024 pada 06.25
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Sep 19, 2021 at 10:04 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -24,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `attendance`
+-- Table structure for table `attendance`
 --
 
 CREATE TABLE `attendance` (
@@ -41,10 +40,10 @@ CREATE TABLE `attendance` (
   `in_status` varchar(15) NOT NULL,
   `out_time` int(11) NOT NULL,
   `out_status` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `attendance`
+-- Dumping data for table `attendance`
 --
 
 INSERT INTO `attendance` (`id`, `username`, `employee_id`, `department_id`, `shift_id`, `location_id`, `in_time`, `notes`, `image`, `lack_of`, `in_status`, `out_time`, `out_status`) VALUES
@@ -65,23 +64,21 @@ INSERT INTO `attendance` (`id`, `username`, `employee_id`, `department_id`, `shi
 (62, 'ADM011', 011, 'ADM', 1, 1, 1631584873, 'none', '', 'None,image', 'Late', 1631621603, 'Over Time'),
 (63, 'QCD027', 027, 'QCD', 6, 2, 1632109417, 'this is a demo note!', '', 'None,image', 'Late', 1632109437, 'Early'),
 (64, 'ACD002', 002, 'ACD', 2, 3, 1632109840, 'demo demo', '', 'None,image', 'On Time', 1632109845, 'Early'),
-(65, 'STD026', 026, 'STD', 1, 2, 1632109903, 'test', '', 'None,image', 'Late', 1632109905, 'Early'),
-(66, 'HRD001', 001, 'HRD', 1, 1, 1719284686, '', '', 'Notes,image', 'Late', 1719284692, 'Early'),
-(67, 'WDT029', 029, 'WDT', 1, 1, 1719285039, 'masuk hari pertama', '', 'None,image', 'Late', 1719285053, 'Early');
+(65, 'STD026', 026, 'STD', 1, 2, 1632109903, 'test', '', 'None,image', 'Late', 1632109905, 'Early');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `department`
+-- Table structure for table `department`
 --
 
 CREATE TABLE `department` (
   `id` char(3) NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `department`
+-- Dumping data for table `department`
 --
 
 INSERT INTO `department` (`id`, `name`) VALUES
@@ -92,13 +89,12 @@ INSERT INTO `department` (`id`, `name`) VALUES
 ('PLD', 'Planner Department'),
 ('QCD', 'Quality Control Department'),
 ('SCD', 'Security Department'),
-('STD', 'Store Department'),
-('WDT', 'Warehouse Departement');
+('STD', 'Store Department');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `employee`
+-- Table structure for table `employee`
 --
 
 CREATE TABLE `employee` (
@@ -110,36 +106,43 @@ CREATE TABLE `employee` (
   `birth_date` date NOT NULL,
   `hire_date` date NOT NULL,
   `shift_id` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `employee`
+-- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`id`, `name`, `email`, `gender`, `image`, `birth_date`, `hire_date`, `shift_id`) VALUES
-(001, 'Nizar', 'devi@gmail.com', 'M', 'default.png', '2001-09-11', '2020-03-01', 1),
-(002, 'Razif', 'intan@gmail.com', 'M', 'default.png', '2001-11-01', '2020-03-01', 2),
-(003, 'Faisal', 'herman@gmail.com', 'M', 'default.png', '2001-11-21', '2020-03-12', 2),
-(004, 'Putri', 'andi@gmail.com', 'F', 'default.png', '2001-09-01', '2020-03-01', 3),
+(001, 'Sadie Kelso', 'devi@gmail.com', 'F', 'default.png', '1996-06-06', '2020-03-01', 2),
+(002, 'Elsa', 'intan@gmail.com', 'F', 'default.png', '1998-02-01', '2020-03-01', 2),
+(003, 'Robert Northern', 'herman@gmail.com', 'M', 'default.png', '1997-11-06', '2020-03-12', 2),
+(004, 'Jesse J Walsh', 'andi@gmail.com', 'M', 'default.png', '1998-01-01', '2020-03-01', 3),
+(005, 'Madeline Mitchell', 'clarita@gmail.com', 'F', 'default.png', '1996-04-06', '2020-04-08', 1),
+(006, 'Emmy Watts', 'oktapan@gmail.com', 'F', 'default.png', '1999-11-04', '2020-04-01', 1),
+(007, 'Domingo Yorke', 'mgb@gmail.com', 'M', 'default.png', '2000-10-29', '2020-03-01', 2),
+(008, 'Stephen Fernando', 'weve@gmail.com', 'M', 'default.png', '2000-11-07', '2020-03-01', 1),
+(009, 'Yvonne J Gunther', 'desi@gmail.com', 'F', 'default.png', '1994-07-05', '2020-04-01', 2),
+(010, 'Blake Collins', 'ddry@gmail.com', 'M', 'default.png', '2000-12-01', '2020-04-06', 3),
+(011, 'Marcus', 'udin@gmail.com', 'M', 'default.png', '1993-10-12', '2020-05-03', 1),
+(024, 'Vernon Keely', '123@fmail.com', 'M', 'default.png', '2001-12-31', '2020-04-28', 1),
 (025, 'Admin ', 'admin@admin.com', 'M', 'default.png', '0000-00-00', '0000-00-00', 0),
-(026, 'Savira', 'christine@gmail.com', 'F', 'default.png', '2000-06-01', '2021-05-16', 1),
-(028, 'Maulana', 'iqbaldwinulhakim04@gmail.com', 'M', 'default.png', '2002-01-01', '2024-06-25', 1),
-(029, 'Rizki', 'rizki123@gmail.com', 'M', 'default.png', '2001-01-01', '2024-06-01', 1);
+(026, 'Christine', 'christine@gmail.com', 'F', 'item-210516-ab8e9ef52f.jpg', '1995-04-01', '2021-05-16', 1),
+(027, 'Johnny', 'johnny@mail.com', 'M', 'default.png', '1993-04-01', '2021-08-13', 6);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `employee_department`
+-- Table structure for table `employee_department`
 --
 
 CREATE TABLE `employee_department` (
   `id` int(3) NOT NULL,
   `employee_id` int(3) UNSIGNED ZEROFILL NOT NULL,
   `department_id` char(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `employee_department`
+-- Dumping data for table `employee_department`
 --
 
 INSERT INTO `employee_department` (`id`, `employee_id`, `department_id`) VALUES
@@ -156,23 +159,21 @@ INSERT INTO `employee_department` (`id`, `employee_id`, `department_id`) VALUES
 (21, 011, 'ADM'),
 (25, 024, 'HRD'),
 (26, 026, 'STD'),
-(27, 027, 'QCD'),
-(28, 028, 'ADM'),
-(29, 029, 'WDT');
+(27, 027, 'QCD');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `location`
+-- Table structure for table `location`
 --
 
 CREATE TABLE `location` (
   `id` int(1) NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `location`
+-- Dumping data for table `location`
 --
 
 INSERT INTO `location` (`id`, `name`) VALUES
@@ -180,37 +181,36 @@ INSERT INTO `location` (`id`, `name`) VALUES
 (2, 'Office'),
 (3, 'Store'),
 (4, 'Site'),
-(6, 'Field'),
-(8, 'Warehouse');
+(6, 'Field');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `shift`
+-- Table structure for table `shift`
 --
 
 CREATE TABLE `shift` (
   `id` int(1) NOT NULL,
   `start` time NOT NULL,
   `end` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `shift`
+-- Dumping data for table `shift`
 --
 
 INSERT INTO `shift` (`id`, `start`, `end`) VALUES
 (1, '08:00:00', '16:00:00'),
 (2, '13:00:00', '21:00:00'),
 (3, '18:00:00', '02:00:00'),
+(4, '03:15:02', '02:05:05'),
 (5, '07:00:00', '18:25:00'),
-(6, '16:00:00', '23:59:00'),
-(7, '09:00:00', '18:00:00');
+(6, '01:00:00', '12:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -218,38 +218,37 @@ CREATE TABLE `users` (
   `password` varchar(128) NOT NULL,
   `employee_id` int(3) UNSIGNED ZEROFILL NOT NULL,
   `role_id` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`username`, `password`, `employee_id`, `role_id`) VALUES
 ('ACD002', '$2y$10$5nv5ehyMVdljfKJ6izsOqOimsbv.cbzU.XLB9ji9zbA.eICdSrNvO', 002, 2),
 ('ADM011', '$2y$10$BKpQcs4XKavCcYdFWujzx.Xqb7r9eNkDrOYss2VNXrMJUUpm1agUC', 011, 2),
 ('admin', '$2y$10$7rLSvRVyTQORapkDOqmkhetjF6H9lJHngr4hJMSM2lHObJbW5EQh6', 025, 1),
-('HRD001', '$2y$10$fGPRpIO8GGvTjYJbSh5Gmu5MAhtKL/vWQnOfmuQZQub.UpvQsK47O', 001, 2),
+('HRD001', '$2y$10$7rLSvRVyTQORapkDOqmkhetjF6H9lJHngr4hJMSM2lHObJbW5EQh6', 001, 2),
 ('PCD010', '$2y$10$BKpQcs4XKavCcYdFWujzx.Xqb7r9eNkDrOYss2VNXrMJUUpm1agUC', 010, 2),
 ('QCD027', '$2y$10$peALJo.JKZyD6uMBd41UfuHGQSJe7ExOfDhPITvDbSRRXeWUGY9xy', 027, 2),
 ('STD005', '$2y$10$hr35h1fIySFYCSRVL2jRD.RuYa9WtJCEJkkqvQfPboYK7VwURpLim', 005, 2),
 ('STD008', '$2y$10$8PGnFaiZPYtcIGrwzMmVZuNKbUb/A88f0NZOA9QVgHaUIJ6ddg.Si', 008, 2),
-('STD026', '$2y$10$8WNMvEEgNPWyRuSeeLDE1uXwnBkYNJE/heLT1zWbsUfYb/wKFyYIy', 026, 2),
-('WDT029', '$2y$10$TWPWE1xKbHI5Aqoe8cVpuOsD6gqse0DQhaEl5W1elVJl80utRn6PG', 029, 2);
+('STD026', '$2y$10$8WNMvEEgNPWyRuSeeLDE1uXwnBkYNJE/heLT1zWbsUfYb/wKFyYIy', 026, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_access`
+-- Table structure for table `user_access`
 --
 
 CREATE TABLE `user_access` (
   `id` int(2) NOT NULL,
   `role_id` int(1) NOT NULL,
   `menu_id` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_access`
+-- Dumping data for table `user_access`
 --
 
 INSERT INTO `user_access` (`id`, `role_id`, `menu_id`) VALUES
@@ -262,16 +261,16 @@ INSERT INTO `user_access` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_menu`
+-- Table structure for table `user_menu`
 --
 
 CREATE TABLE `user_menu` (
   `id` int(2) NOT NULL,
   `menu` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_menu`
+-- Dumping data for table `user_menu`
 --
 
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
@@ -284,16 +283,16 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Table structure for table `user_role`
 --
 
 CREATE TABLE `user_role` (
   `id` int(1) NOT NULL,
   `name` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_role`
+-- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `name`) VALUES
@@ -303,7 +302,7 @@ INSERT INTO `user_role` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_submenu`
+-- Table structure for table `user_submenu`
 --
 
 CREATE TABLE `user_submenu` (
@@ -313,10 +312,10 @@ CREATE TABLE `user_submenu` (
   `url` varchar(50) NOT NULL,
   `icon` varchar(50) NOT NULL,
   `is_active` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_submenu`
+-- Dumping data for table `user_submenu`
 --
 
 INSERT INTO `user_submenu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
@@ -336,7 +335,7 @@ INSERT INTO `user_submenu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`
 --
 
 --
--- Indeks untuk tabel `attendance`
+-- Indexes for table `attendance`
 --
 ALTER TABLE `attendance`
   ADD PRIMARY KEY (`id`),
@@ -347,19 +346,19 @@ ALTER TABLE `attendance`
   ADD KEY `location_id` (`location_id`);
 
 --
--- Indeks untuk tabel `department`
+-- Indexes for table `department`
 --
 ALTER TABLE `department`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `employee`
+-- Indexes for table `employee`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `employee_department`
+-- Indexes for table `employee_department`
 --
 ALTER TABLE `employee_department`
   ADD PRIMARY KEY (`id`),
@@ -367,19 +366,19 @@ ALTER TABLE `employee_department`
   ADD KEY `employee_department_ibfk_2` (`department_id`);
 
 --
--- Indeks untuk tabel `location`
+-- Indexes for table `location`
 --
 ALTER TABLE `location`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `shift`
+-- Indexes for table `shift`
 --
 ALTER TABLE `shift`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`username`),
@@ -387,7 +386,7 @@ ALTER TABLE `users`
   ADD KEY `role_id` (`role_id`);
 
 --
--- Indeks untuk tabel `user_access`
+-- Indexes for table `user_access`
 --
 ALTER TABLE `user_access`
   ADD PRIMARY KEY (`id`),
@@ -395,82 +394,113 @@ ALTER TABLE `user_access`
   ADD KEY `role_id` (`role_id`);
 
 --
--- Indeks untuk tabel `user_menu`
+-- Indexes for table `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_role`
+-- Indexes for table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_submenu`
+-- Indexes for table `user_submenu`
 --
 ALTER TABLE `user_submenu`
   ADD PRIMARY KEY (`id`),
   ADD KEY `menu_id` (`menu_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `attendance`
+-- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 --
--- AUTO_INCREMENT untuk tabel `employee`
+-- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
+  MODIFY `id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
--- AUTO_INCREMENT untuk tabel `employee_department`
+-- AUTO_INCREMENT for table `employee_department`
 --
 ALTER TABLE `employee_department`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
--- AUTO_INCREMENT untuk tabel `location`
+-- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT untuk tabel `shift`
+-- AUTO_INCREMENT for table `shift`
 --
 ALTER TABLE `shift`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT untuk tabel `user_access`
+-- AUTO_INCREMENT for table `user_access`
 --
 ALTER TABLE `user_access`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
--- AUTO_INCREMENT untuk tabel `user_menu`
+-- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
--- AUTO_INCREMENT untuk tabel `user_role`
+-- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
--- AUTO_INCREMENT untuk tabel `user_submenu`
+-- AUTO_INCREMENT for table `user_submenu`
 --
 ALTER TABLE `user_submenu`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-COMMIT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `attendance`
+--
+ALTER TABLE `attendance`
+  ADD CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `attendance_ibfk_3` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `attendance_ibfk_4` FOREIGN KEY (`shift_id`) REFERENCES `shift` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `attendance_ibfk_5` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `employee_department`
+--
+ALTER TABLE `employee_department`
+  ADD CONSTRAINT `employee_department_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `employee_department_ibfk_2` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_access`
+--
+ALTER TABLE `user_access`
+  ADD CONSTRAINT `user_access_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `user_menu` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_access_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_submenu`
+--
+ALTER TABLE `user_submenu`
+  ADD CONSTRAINT `user_submenu_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `user_menu` (`id`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

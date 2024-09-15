@@ -76,9 +76,110 @@
              </div>
            </div>
          </div>
-      </div>
-    </div>
+
+         <!-- Content Row -->
+
+         <div class="row">
+
+           <div class="col-xl-4 col-lg-5">
+             <!-- Pie Chart -->
+             <div class="col p-0">
+               <div class="card shadow mb-4">
+                 <!-- Card Header - Dropdown -->
+                 <div class="card-header py-3 d-flex flex-rowz align-items-center justify-content-between">
+                   <h6 class="m-0 font-weight-bold text-primary">Departments' Employees</h6>
+                   <div class="dropdown no-arrow">
+                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                     </a>
+                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                       <div class="dropdown-header">More Details:</div>
+                       <a class="dropdown-item" href="<?= base_url('admin') ?>">Department List</a>
+                     </div>
+                   </div>
+                 </div>
+                 <!-- Card Body -->
+                 <div class="card-body" style="max-height: 400px; overflow: scroll; overflow-x : hidden;">
+                   <table class="table">
+                     <thead class="bg-info text-white">
+                       <tr>
+                         <th scope="col">#</th>
+                         <th scope="col">Dept Code</th>
+                         <th scope="col">Employees</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <?php $i = 1;
+                        foreach ($d_list as $d) : ?>
+                         <tr>
+                           <th scope="row"><?= $i++ ?></th>
+                           <td><?= $d['d_id'] ?></td>
+                           <td><?= $d['qty'] ?></td>
+                         </tr>
+                       <?php endforeach; ?>
+                     </tbody>
+                   </table>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-xl-4 col-lg-5">
+             <!-- Pie Chart -->
+             <div class="col p-0">
+               <div class="card shadow mb-4">
+                 <!-- Card Header - Dropdown -->
+                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                   <h6 class="m-0 font-weight-bold text-primary">Employees per Shift</h6>
+                 </div>
+                 <!-- Card Body -->
+                 <div class="card-body" style="max-height: 370px;">
+                   <table class="table">
+                     <thead class="bg-info text-white">
+                       <tr>
+                         <th scope="col">#</th>
+                         <th scope="col">Shift Code</th>
+                         <th scope="col">Employees</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <?php $i = 1;
+                        foreach ($s_list as $s) : ?>
+                         <?php if ($s['s_id'] == 0) {
+                            continue;
+                          } ?>
+                         <tr>
+                           <th scope="row"><?= $i++ ?></th>
+                           <td><?= $s['s_id'] ?></td>
+                           <td><?= $s['qty'] ?></td>
+                         </tr>
+                       <?php endforeach; ?>
+                     </tbody>
+                   </table>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-xl-4 col-lg-5">
+             <!-- Earnings (Monthly) Card Example -->
+             <div class="col p-0">
+               <div class="card border-left-dark shadow h-100 py-2">
+                 <div class="card-body">
+                   <div class="row no-gutters align-items-center">
+                     <div class="col mr-2">
+                       <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">4SIMD - Web Programming</div>
+                       <div class="h5 mb-0 font-weight-bold text-gray-800">Andry - 1831006</div>
+                     </div>
+                     <div class="col-auto">
+                       <i class="fas fa-user fa-2x text-gray-300"></i>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
        <!-- /.container-fluid -->
 
-  </div>
+       </div>
        <!-- End of Main Content -->
