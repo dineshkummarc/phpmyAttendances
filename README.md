@@ -1,1 +1,2 @@
-# EmployeeAttendance_CI
+# phpmyAttendances
+formerly EmployeeAttendance_CI
